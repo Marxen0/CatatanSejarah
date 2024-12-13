@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Ensuring the HTML and body take full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-bottom: 50vh;
+        }
+
+        /* Prevent shrinking of the header and set a fixed height */
+        .header {
+            width: 100vw;
+            max-width: 100%;
+            min-height: 30vh; /* Set a minimum height */
+            height: 30vh; /* 30% of the viewport height */
+            background: rgba(0, 0, 0, 0.808) url('https://64.media.tumblr.com/82deae3bd84aaf12716dd0f0daeeb95d/efdeef8a26a14b61-8c/s1280x1920/f716b6d77e81022400e0307a19f724720ef02894.jpg');
+            background-size: cover;
+            background-blend-mode: multiply;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centering the text vertically */
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .collapsible {
+            background-color: rgb(55, 75, 160);
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            max-width: 90%;
+            align-self: center;
+        }
+
+        .collapsible:hover {
+            background-color: rgb(65, 85, 180);
+        }
+
+        .subbab {
+            display: none; /* Initially hide the content */
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            min-width: 90%;
+            max-width: 90%;
+            align-self: center;
+            padding: 1%;
+            box-sizing: border-box;
+            box-shadow: 10px;
+            filter: drop-shadow(-10px 10px 4px #acacac);
+        }
+
+        .image-container {
+            position: relative;
+            max-width: 100%;
+            overflow: auto;
+            display: block;
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-container>a{
+            cursor: pointer;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .image-container>#Judul {
+            top: 20%;
+            left: 50%;
+            height: 25%;
+            aspect-ratio: 3/1;
+            border-radius: 10px;
+        }
+        .image-container>#SubJudul1 {
+            top: 56%;
+            left: 32%;
+            height: 20%;
+            aspect-ratio: 4/1;
+            border-radius: 10px;
+        }
+        .image-container>#TeoriOutOfAfrica {
+            top: 33%;
+            left: 10%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+        .image-container>#TeoriYunan {
+            top: 57%;
+            left: 10%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+        .image-container>#TeoriNusantara {
+            top: 80%;
+            left: 10%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+        .image-container>#SubJudul2 {
+            top: 56%;
+            left: 68%;
+            height: 20%;
+            aspect-ratio: 4/1;
+            border-radius: 10px;
+        }
+        .image-container>#WedoidDanPapua {
+            top: 33%;
+            left: 90%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+        .image-container>#ProtoMelayu {
+            top: 57%;
+            left: 90%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+        .image-container>#DeutroMelayu {
+            top: 80%;
+            left: 90%;
+            height: 20%;
+            aspect-ratio: 2.5/1;
+            border-radius: 10px;
+        }
+
+        .note {
+            min-width: 50%;
+            max-width: 50%;
+            box-sizing: border-box;
+            padding-bottom: 3%;
+            font-family: 'Roboto', sans-serif;
+        }
+        .link{
+            color: rgb(114, 35, 167);
+            text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content {
+            visibility: show;
+        }
+        .collapsible-container{
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width:750px) {
+            .note{
+                max-width: 100%;
+                min-width: 100%;
+            }
+            .responsive-image{
+                max-width: 1000px;
+                width: 170%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header"><span>SEJARAH</span></div>
+
+    <!-- Collapsible Button -->
+    <div class="collapsible-container">
+        <button class="collapsible">Materi Teori Persebaran Homo Sapien Ke Indonesia</button>
+        <div class="subbab">
+                <div class="image-container">
+                    <img id="imgBab1" class="responsive-image" src="img/Mindmap Teori Asal Usul ke Indonesia.PNG" alt="">
+                    <a id="Judul" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S1.PNG', 'imgBab1')" onclick="getNote('S1', 'bab1')"></a>
+                    <a id="SubJudul1" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S2.PNG', 'imgBab1')" onclick="getNote('S2', 'bab1')"></a>
+                    <a id="SubJudul2" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S3.PNG', 'imgBab1')" onclick="getNote('S3', 'bab1')"></a>
+                    <a id="TeoriOutOfAfrica" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S2-1.PNG', 'imgBab1')" onclick="getNote('S2-1', 'bab1')"></a>
+                    <a id="TeoriYunan" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S2-2.PNG', 'imgBab1')" onclick="getNote('S2-2', 'bab1')"></a>
+                    <a id="TeoriNusantara" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S2-3.PNG', 'imgBab1')" onclick="getNote('S2-3', 'bab1')"></a>
+                    <a id="WedoidDanPapua" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S3-1.PNG', 'imgBab1')" onclick="getNote('S3-1', 'bab1')"></a>
+                    <a id="ProtoMelayu" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S3-2.PNG', 'imgBab1')" onclick="getNote('S3-2', 'bab1')"></a>
+                    <a id="DeutroMelayu" onmouseleave="OnLeave('imgBab1')" onmouseover="OnHover('img/S3-3.PNG', 'imgBab1')" onclick="getNote('S3-3', 'bab1')"></a>
+                </div>
+                <a style="display: block;" href="RawNote.html" >LIHAT CATATAN TULISAN SECARA FULL</a>
+                <div class="note" id="bab1">
+                    <h2>Pilih Bagian Mindmap</h2>
+                    <p>pillih bagian mindmap yang ingin dilihat</p>
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle visibility of the subbab
+        const collapsibles = document.querySelectorAll(".collapsible");
+
+        collapsibles.forEach(collapsible => {
+            collapsible.addEventListener('click', function () {
+                const subbab = this.nextElementSibling;  // Get the next element after the button (which is subbab)
+                const noteElement = subbab.querySelector(".note");
+                const defaultContent = `
+                    <h2>Pilih Bagian Mindmap</h2>
+                    <p>pillih bagian mindmap yang ingin dilihat</p>
+                `;
+                // Toggle display between none and flex (show/hide)
+                if (subbab.style.display === "none" || subbab.style.display === "") {                 
+                    noteElement.innerHTML = defaultContent;
+                    subbab.style.display = "flex";
+                } else {
+                    subbab.style.display = "none";
+                }
+            });
+        });
+
+        function getNote(note, idsender) {
+            const requested = new XMLHttpRequest();
+            requested.onload = function () {
+                const parser = new DOMParser();
+                const externalDOC = parser.parseFromString(this.response, 'text/html');
+
+                const externalElement = externalDOC.getElementById(note);
+                if (externalElement) {
+                    document.getElementById(idsender).innerHTML = externalElement.innerHTML;
+                } else {
+                    document.getElementById(idsender).innerText = "note not found";
+                }
+            }
+            requested.open('GET', 'RawNote.html', true);
+            requested.send();
+        }
+        function OnHover(img, idsender){
+            document.getElementById(idsender).src = img;
+        }
+        function OnLeave(idsender){
+            document.getElementById(idsender).src = 'img/Mindmap Teori Asal Usul ke Indonesia.PNG';
+        }
+        
+        // Track the previous screen width
+        let previousWidth = window.innerWidth;
+
+        // Store original 'left' values
+        function storeOriginalLeftValues() {
+            const anchors = document.querySelectorAll('.image-container > a');
+            anchors.forEach(anchor => {
+                const computedLeft = window.getComputedStyle(anchor).getPropertyValue('left');
+                anchor.setAttribute('data-original-left', computedLeft);
+            });
+        }
+
+        // Reset to original CSS values
+        function resetAnchorPositions() {
+            const anchors = document.querySelectorAll('.image-container > a');
+            anchors.forEach(anchor => {
+                const originalLeft = anchor.getAttribute('data-original-left');
+                if (originalLeft) {
+                    anchor.style.left = originalLeft;
+                }
+            });
+        }
+
+        // Update positions only if resizing below threshold
+        function updateAnchorPositions() {
+            const anchors = document.querySelectorAll('.image-container > a');
+            anchors.forEach(anchor => {
+                const originalLeft = parseFloat(anchor.getAttribute('data-original-left'));
+                if (!isNaN(originalLeft)) {
+                    // Calculate the new 'left' value based on the scaling factor
+                    const scalingFactor = 1.7; // Example: image width is 150% of container
+                    const newLeft = originalLeft * scalingFactor + '%';
+                    anchor.style.left = newLeft;
+                }
+            });
+        }
+
+        // Resize logic
+        function handleResize() {
+            const currentWidth = window.innerWidth;
+
+            // If the screen is expanding above 750px, reset to original CSS
+            if (currentWidth > 750 && previousWidth <= 750) {
+                resetAnchorPositions();
+            }
+            // If the screen is shrinking below 750px, apply the scaling logic
+            else if (currentWidth <= 750 && previousWidth > 750) {
+                updateAnchorPositions();
+            }
+
+            // Update the previous width
+            previousWidth = currentWidth;
+        }
+
+        // Store original values and set up resize listener
+        document.addEventListener('DOMContentLoaded', () => {
+            storeOriginalLeftValues();
+            window.addEventListener('resize', handleResize);
+
+            // Initial check for current screen size
+            if (window.innerWidth <= 750) {
+                updateAnchorPositions();
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>
